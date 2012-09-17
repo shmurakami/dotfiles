@@ -1,1 +1,0 @@
-/Users/skmrkm/.emacs.d
