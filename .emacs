@@ -1,15 +1,14 @@
 (setq-default tab-width 4)
 (set-language-environment "Japanese")
 
-;; auto-save nil
-;;(setq make-backup-files nil)
-;;(setq auto-save nil)
+;; no-beep
+(setq visible-bell t)
 
 ;; paste target
 (setq mouse-yank-at-point t)
 
 ;; key bind
-(global-set-key (kbd "C-h") 'delete-backward-char)
+;;(global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-z") 'undo)
 
 ;; hide tool-bar
@@ -146,3 +145,38 @@
 (fset 'lc
    [?\C-x ?\C-s escape ?x ?l ?o ?a ?d ?- ?f ?i ?l ?e return ?. ?e ?m ?a ?c ?s return])
 
+
+;; php-mode
+(when (require 'php-mode nil t)
+  (setq php-mode-force-pear t)
+  (add-to-list 'auto-mode-alist '("\\.php$" . php-mode)))
+
+;; anything
+;; (auto-install-batch <RET> anything <RET>)
+(when (require 'anything nil t)
+  (setq
+   anything-idle-delay 0.3
+   anything-quick-update t
+   anything-enable-shortcuts 'alphaet)
+
+  ;; win: windows-nt or cygwin, mac: darwin, linux: gnu/linux
+  (when (eq system-type 'darwin)
+	(when (require 'anything-config nil t)
+	  (setq anything-su-or-sudo "sudo")))
+
+  (require 'anything-match-plugin nil t)
+
+  (when (and (executable-find "cmigemo")
+			 (require 'migemo nil t))
+	(require 'anything-migemo nil t))
+
+  (when (require 'anything-complete nil t)
+	(anything-lisp-complete-symbol-set-timer 150))
+
+  (require 'anything-show-completion nil t)
+
+  (when (require 'auto-install nil t)
+	(require 'anything-auto-install nil t))
+
+  (when (require 'descbinds-anything nil t)
+	(descbinds-anything-install)))
