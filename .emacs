@@ -7,26 +7,11 @@
 ;; paste target
 (setq mouse-yank-at-point t)
 
-;; key bind
-;;(global-set-key (kbd "C-h") 'delete-backward-char)
-(global-set-key (kbd "C-z") 'undo)
-
 ;; hide tool-bar
 (load "~/.emacs.d/hide-toolbar.el" 'noerror)
 
-;; Zen Coding
-;;(add-to-list ~/emacs/zencoding-mode.el)
-;;(require 'zencoding-mode')
-
-;;tabbar(setq last-kbd-macro
-;;(add-to-list ~/emacs/tabbari\.el)
-;;(load ~/emacs/tabbar-config.el)
-
 ;; bell settings
 (setq bell-style nil)
-
-;; set tab size
-(setq-default tab-width 4)
 
 ;; old version support
 (when (< emacs-major-version 23)
@@ -77,11 +62,26 @@
        setq indent-tabs-mode nil))
 
 ;; font
-;; (set-face-attribute 'default nil :family "Osaka" :height 120)
+(set-face-attribute 'default nil :family "Osaka" :height 120)
 
-;; japanese font
-(set-fontset-font nil 'japanese-jisx0208
-				  (font-spec :family "ƒƒCƒŠƒI"))
+
+;; key bind
+;;(global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "C-z") 'undo)
+
+;; undohist
+(when (require 'undohist nil t)
+  (undohist-initialize))
+
+;; undpo-tree
+;; C-x u q:quit
+(when (require 'undo-tree nil t)
+  (global-undo-tree-mode))
+
+;; point undo
+(when (require 'point-undo nil t)
+  (define-key global-map (kbd "C-c C-z") 'point-undo)
+  (define-key global-map (kbd "C-c C-y") 'point-redo))
 
 ;; hilight current line
 ;;(defface my-hl-line-face

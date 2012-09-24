@@ -1,0 +1,2 @@
+;; bell settings
+(setq bell-style nil)
