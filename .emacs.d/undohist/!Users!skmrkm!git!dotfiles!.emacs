@@ -1,4 +1,2 @@
 
-((digest . "82ab7a845286e17cee396a0e39573b70") (undo-list nil (#("
-" 0 1 (fontified t)) . 566) ((marker . 1116) . -1) ((marker . 1116) . -1) nil (#("
-" 0 1 (fontified t)) . 566) ((marker) . -1) ((marker) . -1) nil undo-tree-canary))
+((digest . "0b3a9cfcb30ee9a8f00fdf09da94f620") (undo-list nil (1630 . 1631) nil (#("1" 0 1 (fontified t)) . -1630) nil (#("2" 0 1 (fontified t)) . -1631) (t . 1348713108) nil (1547 . 1555) nil (#("a" 0 1 (fontified t)) . -1547) nil (1541 . 1548) nil (#(" " 0 1 (fontified t)) . -1541) nil (1529 . 1542) nil (1526 . 1529) nil (1522 . 1526) nil (1502 . 1522) nil (1499 . 1502) nil (1493 . 1499) nil (1473 . 1493) nil (#("q" 0 1 (fontified t)) . -1473) nil (1473 . 1474) nil (#("e" 0 1 (fontified t)) . -1473) nil (#("u" 0 1 (fontified t)) . -1474) nil (#("i" 0 1 (fontified t)) . -1475) nil (1465 . 1476) nil (1464 . 1465) nil undo-tree-canary))

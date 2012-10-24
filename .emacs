@@ -3,19 +3,22 @@
 
 ;; no-beep
 (setq visible-bell t)
+(setq bell-style nil)
 
 ;; paste target
 (setq mouse-yank-at-point t)
 
 ;; hide tool-bar
-(load "~/.emacs.d/hide-toolbar.el" 'noerror)
-
-;; bell settings
-(setq bell-style nil)
+(tool-bar-mode 0)
+;;(load "~/.emacs.d/hide-toolbar.el" 'noerror)
 
 ;; old version support
 (when (< emacs-major-version 23)
   (defvar user-emacs-directory "~/.emacs.d"))
+
+;; for mac command-key to control
+;; (when (eq system-type 'mac)
+;;   (setq mac-command-modifier 'control))
 
 ;; add load path
 (add-to-list 'load-path "~/emacs.d/elisp")
@@ -41,14 +44,33 @@
 			   '("ELPA" . "http://tromey.com/elpa"))
   (package-initialize))
 
+;;;; key bind
 ;; newline and indent
 (define-key global-map (kbd "C-m") 'newline-and-indent)
-
 ;; toggle line-break
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
-
 ;; change active window
-(define-key global-map (kbd "C-t") 'other-window)
+(define-key global-map (kbd "C-o") 'other-window)
+;; paste
+(define-key global-map (kbd "C-v") 'clipboard-yank)
+;; undo
+(global-set-key (kbd "C-z") 'undo)
+;; redo
+(when (require 'redo+ nil t)
+  (global-set-key (kbd "C-y") 'redo))
+
+;; color theme
+(when (require 'color-theme nil t)
+  (color-theme-initialize)
+  (color-theme-dark-laptop))
+
+;; frame size
+(setq initial-frame-alist
+	  (append (list
+			   '(width . 60)
+			   '(height . 50))
+			  initial-frame-alist))
+(setq default-frame-alist initial-frame-alist)
 
 ;; show full-path on title-bar
 (setq frame-title-format "%f")
@@ -62,12 +84,12 @@
        setq indent-tabs-mode nil))
 
 ;; font
-(set-face-attribute 'default nil :family "Osaka" :height 120)
-
+(set-face-attribute 'default nil :family "SourceCodePro-ExtraLight" :height 120)
+;;(set-face-attribute 'default nil :family "Osaka" :height 120)
 
 ;; key bind
 ;;(global-set-key (kbd "C-h") 'delete-backward-char)
-(global-set-key (kbd "C-z") 'undo)
+
 
 ;; undohist
 (when (require 'undohist nil t)
@@ -99,14 +121,14 @@
 (show-paren-mode t)
 
 ;; auto-backup to TEMP
-(setq backup-directory-alist `((".*" , temporary-file-directory)))
-(setq auto-save-file-name-transforms `((".*" , temporary-file-directory t)))
-(setq auto-save-interval 500)
+;; (setq backup-directory-alist `((".*" , temporary-file-directory)))
+;; (setq auto-save-file-name-transforms `((".*" , temporary-file-directory t)))
+;; (setq auto-save-interval 500)
 
 ;; if file body started by "#!", add +x
-(add-hook 'after-save-hook
-	 'executable-make-buffer-file-executable-if-script-p)
-(executable-make-buffer-file-executable-if-script-p)
+;; (add-hook 'after-save-hook
+;; 	 'executable-make-buffer-file-executable-if-script-p)
+;; (executable-make-buffer-file-executable-if-script-p)
 
 ;; eldoc
 (defun emacs-list-mode-hooks ()
@@ -133,21 +155,18 @@
   ;; available install-elisp
   (auto-install-compatibility-setup))
 
-;; M-x install-elisp
-;; redo
-;; http://www.emacswiki.org/emacs/download/redo+.el
-
-;; redo
-(when (require 'redo+ nil t)
-  (global-set-key (kbd "C-y") 'redo))
-
 ;; save && re-load ~/.emacs
 (fset 'lc
    [?\C-x ?\C-s escape ?x ?l ?o ?a ?d ?- ?f ?i ?l ?e return ?. ?e ?m ?a ?c ?s return])
 
+;; ELScreen
+;; like a GNU screen
+;;(when (require 'elscreen nil t)
+;;  (if window-system
+;;	 (define-key elscreen-map (kbd "C-t") 'suspend-emacs)))
 
-;; php-mode
-(when (require 'php-mode nil t)
+;; php-mode(
+when (require 'php-mode nil t)
   (setq php-mode-force-pear t)
   (add-to-list 'auto-mode-alist '("\\.php$" . php-mode)))
 
@@ -161,8 +180,8 @@
 
   ;; win: windows-nt or cygwin, mac: darwin, linux: gnu/linux
   (when (eq system-type 'darwin)
-	(when (require 'anything-config nil t)
-	  (setq anything-su-or-sudo "sudo")))
+    (when (require 'anything-config nil t)
+      (setq anything-su-or-sudo "sudo")))
 
   (require 'anything-match-plugin nil t)
 
@@ -180,3 +199,37 @@
 
   (when (require 'descbinds-anything nil t)
 	(descbinds-anything-install)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values (quote ((Coding . utf-8)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; ruby
+(require 'ruby-electric nil t)
+;; highlight line mathed to end
+(when (require 'ruby-block nil t)
+  (setq ruby-block-highlight-toggle t))
+;; interactive
+(autoload 'run-ruby "inf-ruby"
+  "Run an inferior Ruby process")
+(autoload 'inf-ruby-keys "inf-ruby"
+  "Set local key defs for inf-ruby in ruby-mode")
+;; function for ruby-mode-hook
+(defun ruby-mode-hooks ()
+  (inf-ruby-keys)
+  (ruby-electric-mode t)
+  (ruby-block-mode t))
+;; add to ruby-mode-hook
+(add-hook 'ruby-mode-hook 'ruby-mode-hooks)
+
+;; zencoding
+(add-hook 'sgml-mode 'zencoding-mode)
+(define-key zencoding-mode-keymap (kbd "TAB") 'zencoding-expand-line)
