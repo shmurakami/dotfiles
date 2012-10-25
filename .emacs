@@ -58,6 +58,12 @@
 ;; redo
 (when (require 'redo+ nil t)
   (global-set-key (kbd "C-y") 'redo))
+;; goto line
+(define-key global-map (kbd "C-c C-l") 'goto-line)
+;; scroll up one line
+(define-key global-map (kbd "C-<up>") 'View-scroll-line-backward)
+;; scroll down one line
+(define-key global-map (kbd "C-<down>") 'View-scroll-line-forward)
 
 ;; color theme
 (when (require 'color-theme nil t)
