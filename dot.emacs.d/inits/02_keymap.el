@@ -23,7 +23,10 @@
 ;; scroll down one line
 (define-key global-map (kbd "s-<down>") 'View-scroll-line-forward)
 ;; delete backward
-(global-set-key (kbd "C-h") 'delete-backward-char)
+;; (global-set-key (kbd "C-h") 'delete-backward-char)
+;;change buffer
+(global-set-key (kbd "C-<next>") 'next-buffer)
+(global-set-key (kbd "C-<prior>") 'previous-buffer)
 
 ;;;; copy to clipboard
 (cond (window-system
