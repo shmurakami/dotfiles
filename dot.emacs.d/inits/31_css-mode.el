@@ -1,4 +1,4 @@
-(defub cssm-mode-hooks ()
+(defun cssm-mode-hooks ()
   "css-mode hooks"
   ;; use c-style indent
   (setq cssm-indent-function #'cssm-c-style-indenter)

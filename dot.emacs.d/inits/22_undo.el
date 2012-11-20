@@ -1,6 +1,6 @@
 ;; undohist
-(require 'undohist)
-(undohist-initialize)
+;;(require 'undohist)
+;;(undohist-initialize)
 
 ;; undo tree
 ;; start:C-x u, quit:q

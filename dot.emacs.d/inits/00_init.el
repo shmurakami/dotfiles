@@ -9,6 +9,6 @@
 ;; auto-backup to backup directoruy
 (add-to-list 'backup-directory-alist
     (cons "." "~/.emacs.d/backups/"))
-(setq auto-save-file-name0transforms `((".*" . ,(expand-file-name "~/.emacs.d/backups/") t)))
+(setq auto-save-file-name0transforms `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
 ;; auto-backup 600seconds interval
 (setq auto-save-interval 600)
