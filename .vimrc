@@ -6,6 +6,10 @@ set showmatch
 set laststatus=2
 set whichwrap=b,s,h,l,<,>,[,]
 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 syntax on
 set smartindent
 
