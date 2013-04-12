@@ -1,1 +1,6 @@
-.emacs.d/auto-save-list
+.emacs
+*.org
+*.emacs.d/backups
+*.emacs.d/elisp
+*.emacs.d/auto*
+*.emacs.d/undohist
