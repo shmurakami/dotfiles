@@ -30,7 +30,7 @@ NeoBundleCheck
 "install: NeoBundleInstall
 "uninstall: NeoBundleClean
 
-"とりあえずコピペしたからいらないのありそう
+" Plugins
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
@@ -39,4 +39,7 @@ NeoBundle 'davidoc/taskpaper.vim'
 "NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'mattn/sonictemplate-vim'
-
+NeoBundle 'Shougo/vimfiler.vim'
+"TODO syntasticの使い方調べる
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'mattn/emmet-vim'

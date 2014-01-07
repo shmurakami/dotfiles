@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/usr/local/etc/nginx'
-let g:netrw_dirhist_2='/Users/shmurakami1104/.vim/bundle/sonictemplate-vim/autoload/sonictemplate'
-let g:netrw_dirhist_3='/Users/shmurakami1104/.vim/bundle/sonictemplate-vim/autoload'
-let g:netrw_dirhist_4='/Users/shmurakami1104/.vim/bundle/sonictemplate-vim/autoload/unite'
-let g:netrw_dirhist_5='/Users/shmurakami1104/.vim/bundle/sonictemplate-vim/autoload/sonictemplate'
