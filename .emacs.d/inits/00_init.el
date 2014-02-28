@@ -12,3 +12,6 @@
 (setq auto-save-file-name0transforms `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
 ;; auto-backup 600seconds interval
 (setq auto-save-interval 600)
+
+;; use clipboard
+(setq x-select-enable-clipboard t)

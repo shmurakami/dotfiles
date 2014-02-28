@@ -17,7 +17,7 @@
 (defun php-completion-hook ()
   (when (require 'php-completion nil t)
 	(php-completion-mode t)
-	(define-key php-mode-map (kbd "C-F") 'phpcmp-complete)
+	(define-key php-mode-map (kbd "s-SPC") 'phpcmp-complete)
 	(when (eq system-type 'darwin)
 	  (define-key php-mode-map (kbd "s-F") 'phpcmp-complete))
 
