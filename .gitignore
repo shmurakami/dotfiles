@@ -4,3 +4,4 @@
 *.emacs.d/elisp
 *.emacs.d/auto*
 *.emacs.d/undohist
+.vim/bundle

@@ -1,18 +1,45 @@
-set visualbell
-set number
-set showmode
-set title
-set showmatch
-set laststatus=2
-set whichwrap=b,s,h,l,<,>,[,]
+"set nocompatible
 
-set tabstop=4
-set shiftwidth=4
-set expandtab
+if has('vim_starting')
+  set rtp+=~/.vim/bundle/neobundle.vim/
+endif
 
-syntax on
-set smartindent
+" load my config
+set runtimepath+=~/.vim/
+runtime! my_autoload/*.vim
 
-set ignorecase
-set smartcase
-set wrapscan
+"neo bundle
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'neobundle.vim'
+
+NeoBundle 'Shougo/vimproc', {
+   \ 'build' : {
+      \ 'windows' : 'make -f make_mingw32.mak',
+      \ 'cygwin' : 'make -f make_cygwin.mak',
+      \ 'mac' : 'make -f make_mac.mak',
+      \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ } 
+
+filetype plugin indent on
+
+NeoBundleCheck
+
+"plugins
+"install: NeoBundleInstall
+"uninstall: NeoBundleClean
+
+" Plugins
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'davidoc/taskpaper.vim'
+"NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'mattn/sonictemplate-vim'
+NeoBundle 'Shougo/vimfiler.vim'
+"TODO syntasticの使い方調べる
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'mattn/emmet-vim'
