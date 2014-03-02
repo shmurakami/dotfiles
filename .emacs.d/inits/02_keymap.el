@@ -8,24 +8,13 @@
 ;; toggle line-break
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
 ;; change active window
-(define-key global-map (kbd "C-o") 'other-window)
+;(define-key global-map (kbd "C-o") 'other-window)
 ;; paste
-(define-key global-map (kbd "C-v") 'clipboard-yank)
+;(define-key global-map (kbd "C-v") 'clipboard-yank)
 ;; undo
 (define-key global-map (kbd "C-z") 'undo)
 ;; redo
-(when (require 'redo+ nil t)
-  (global-set-key (kbd "C-y") 'redo))
-;; go to line
-(define-key global-map (kbd "C-c M-l") 'goto-line)
-;; scroll up one line
-(define-key global-map (kbd "C-<up>") 'View-scroll-line-backward)
-;; scroll down one line
-(define-key global-map (kbd "C-<down>") 'View-scroll-line-forward)
-;; overwrite: scroll for mac
-(when (eq system-type 'darwin)
-  (define-key global-map (kbd "s-<up>") 'View-scroll-line-backward)
-  (define-key global-map (kbd "s-<down>") 'View-scroll-line-forward))
+(global-set-key (kbd "M-z") 'redo)
 ;;change buffer
 (global-set-key (kbd "C-<next>") 'next-buffer)
 (global-set-key (kbd "C-<prior>") 'previous-buffer)
@@ -34,3 +23,14 @@
 (cond (window-system
 	   (setq x-select-enable-clipboard t)))
 
+;; for mac keymap
+;; overwrite: scroll for mac
+(when (eq system-type 'darwin)
+  ;; scroll line
+  (define-key global-map (kbd "s-<up>") 'View-scroll-line-backward)
+  (define-key global-map (kbd "s-<down>") 'View-scroll-line-forward)
+  ;; undo redo
+  (define-key global-map (kbd "s-z") 'undo)
+  (define-key global-map (kbd "s-y") 'redo)
+  ;; command canncel
+  (define-key global-map (kbd "s-g") 'keyboard-quit))
