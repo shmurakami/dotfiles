@@ -30,4 +30,3 @@
 	 ;; key binding
 	 (define-key go-mode-map (kbd "M-.") 'godef-jump)
 	 (define-key go-mode-map (kbd "M-,") 'pop-tag-mark)))
-
