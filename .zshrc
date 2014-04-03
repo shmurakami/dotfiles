@@ -29,26 +29,11 @@ fpath=(~/work/git/zsh-completions/src $fpath)
 
 setopt hist_ignore_space
 
-#
-## set prompt
-##
-#case ${UID} in
-#    0)
-#        PROMPT="%B%{[31m%}%/#%{[m%}%b "
-#        PROMPT2="%B%{[31m%}%_#%{[m%}%b "
-#        SPROMPT="%B%{[31m%}%r is correct? [n,y,a,e]:%{[m%}%b "
-#        [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-#        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-#        ;;
-#    *)
-#        PROMPT="%{[31m%}%/%%%{[m%} "
-#        PROMPT2="%{[31m%}%_%%%{[m%} "
-#        SPROMPT="%{[31m%}%r is correct? [n,y,a,e]:%{[m%} "
-#        [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-#        PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-#        ;;
-#esac
-PROMPT='%m:%d $ '
+# set prompt
+PROMPT=""
+PROMPT+="%(?.%F{green}%m%f.%F{red}%m%f) "
+PROMPT+="%F{cyan}%~%f "
+PROMPT+="$ "
 
 # report
 REPORTTIME=3
