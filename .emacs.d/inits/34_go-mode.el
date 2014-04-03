@@ -1,4 +1,5 @@
-;; enable
+;; for go-mode
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp/golang"))
 (setenv "GOROOT" "/usr/local/go")
 (setenv "GOPATH" "/usr/local/go/lib")
 (require 'go-mode)
@@ -25,8 +26,11 @@
   '(progn
 	 (require 'go-autocomplete)
 	 (require 'auto-complete-config)
-	 (require 'go-flymake)
-	 (add-hook 'go-mode-hooks 'go-eldocs-setup)
+;	 (require 'go-flymake)
+;	 (require 'go-flycheck)
+	 (require 'go-eldoc)
+	 (require 'golint)
+     (add-hook 'go-mode-hooks 'go-eldocs-setup)
 	 ;; key binding
 	 (define-key go-mode-map (kbd "M-.") 'godef-jump)
 	 (define-key go-mode-map (kbd "M-,") 'pop-tag-mark)))
