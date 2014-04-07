@@ -30,3 +30,19 @@
 ;; high-light match paren
 (setq show-paren-delay 0)
 (show-paren-mode t)
+
+;; whitespace
+(setq whitespace-style
+	  '(tabs tab-mark spaces space-mark))
+(setq whitespace-regexp "\\(\u3000+\\)")
+(setq whitespace-display-mappings
+	  '((space-mark ?\x3000 [?\　])
+		(tab-mark   ?\t     [\xBB \t])
+		))
+(require 'whitespace)
+;; show whitespace
+(global-whitespace-mode t)
+(set-face-foreground 'whitespace-space "Gray20")
+(set-face-background 'whitespace-space "Black")
+(set-face-foreground 'whitespace-tab "Gray20")
+(set-face-background 'whitespace-tab "Black")
