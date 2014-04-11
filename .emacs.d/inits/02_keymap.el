@@ -9,14 +9,11 @@
 (define-key global-map (kbd "C-m") 'newline-and-indent)
 ;; toggle line-break
 (define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
-;; change active window
-;(define-key global-map (kbd "C-o") 'other-window)
-;; paste
-;(define-key global-map (kbd "C-v") 'clipboard-yank)
 ;; undo
 (define-key global-map (kbd "C-z") 'undo)
 ;; redo
-(global-set-key (kbd "M-z") 'redo)
+;(global-set-key (kbd "M-z") 'redo)
+(global-set-key (kbd "C-S-z") 'redo)
 ;;change buffer
 (global-set-key (kbd "C-<next>") 'next-buffer)
 (global-set-key (kbd "C-<prior>") 'previous-buffer)
@@ -53,3 +50,7 @@
   (define-key global-map (kbd "s-y") 'redo)
   ;; command canncel
   (define-key global-map (kbd "s-g") 'keyboard-quit))
+
+
+;; cua-mode
+(define-key global-map (kbd "C-c r") 'cua-mode)

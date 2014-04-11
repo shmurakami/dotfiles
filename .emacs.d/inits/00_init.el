@@ -15,3 +15,6 @@
 
 ;; use clipboard
 (setq x-select-enable-clipboard t)
+
+;; default chara code
+(set-default-coding-systems 'utf-8-unix)
