@@ -8,7 +8,7 @@
 ;; newline and indent
 (define-key global-map (kbd "C-m") 'newline-and-indent)
 ;; toggle line-break
-(define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
+(define-key global-map (kbd "C-c l") 'goto-line)
 ;; undo
 (define-key global-map (kbd "C-z") 'undo)
 ;; redo
