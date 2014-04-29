@@ -32,9 +32,10 @@
 (show-paren-mode t)
 
 ;; whitespace color
-;(global-whitespace-mode t)
-;(set-face-foreground 'whitespace-space "Gray20")
-;(set-face-background 'whitespace-space "Black")
-;(set-face-foreground 'whitespace-tab "Gray20")
-;(set-face-background 'whitespace-tab "Black")
-
+(set-face-foreground 'whitespace-space "Gray20")
+(set-face-background 'whitespace-space "Black")
+(set-face-foreground 'whitespace-tab "Gray20")
+(set-face-background 'whitespace-tab "Black")
+; 150 columns as long line
+(setq whitespace-line-column 150)
+(global-whitespace-mode t)
