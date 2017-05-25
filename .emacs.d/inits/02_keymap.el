@@ -8,7 +8,7 @@
 ;; newline and indent
 (define-key global-map (kbd "C-m") 'newline-and-indent)
 ;; toggle line-break
-(define-key global-map (kbd "C-c l") 'goto-line)
+(define-key global-map (kbd "C-c l") 'toggle-truncate-lines)
 ;; undo
 (define-key global-map (kbd "C-z") 'undo)
 ;; redo
@@ -17,6 +17,8 @@
 ;;change buffer
 (global-set-key (kbd "C-<next>") 'next-buffer)
 (global-set-key (kbd "C-<prior>") 'previous-buffer)
+(global-set-key (kbd "C-{") 'next-buffer)
+(global-set-key (kbd "C-}") 'previous-buffer)
 
 ;; change window
 (when (fboundp 'windmove-default-keybindings)

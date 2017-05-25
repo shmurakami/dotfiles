@@ -11,7 +11,9 @@
 (add-to-list 'exec-path (expand-file-name (getenv "GOPATH")))
 
 ;; gofmt before save
+;(add-hook 'before-save-hook 'gofmt-before-save)
 (add-hook 'before-save-hook 'gofmt-before-save)
+;(add-hook 'before-save-hook 'go-remove-unused-imports)
 
 ;; godef jump
 ;(add-hook 'go-mode-hook (lamda ()

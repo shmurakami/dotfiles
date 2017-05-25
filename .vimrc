@@ -30,7 +30,7 @@ NeoBundleCheck
 "install: NeoBundleInstall
 "uninstall: NeoBundleClean
 
-" Plugins
+"TODO sort out later
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
@@ -40,6 +40,9 @@ NeoBundle 'davidoc/taskpaper.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'mattn/sonictemplate-vim'
 NeoBundle 'Shougo/vimfiler.vim'
-"TODO syntasticの使い方調べる
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 't9md/vim-choosewin'
+NeoBundle 'vim-scripts/vim-coffee-script'
+NeoBundle 'violetyk/neocomplete-php.vim'
+NeoBundle 'othree/html5.vim'
