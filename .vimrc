@@ -1,42 +1,37 @@
 "set nocompatible
 
-if has('vim_starting')
-  set rtp+=~/.vim/bundle/neobundle.vim/
-endif
-
-" load my config
+" load my config files
 set runtimepath+=~/.vim/
 runtime! my_autoload/*.vim
 
-"neo bundle
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-NeoBundleFetch 'neobundle.vim'
-
-NeoBundle 'Shougo/vimproc', {
-   \ 'build' : {
-      \ 'windows' : 'make -f make_mingw32.mak',
-      \ 'cygwin' : 'make -f make_cygwin.mak',
-      \ 'mac' : 'make -f make_mac.mak',
-      \ 'unix' : 'make -f make_unix.mak',
-  \ },
-\ } 
-
 filetype plugin indent on
 
-NeoBundleCheck
+"NeoBundle Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-"plugins
-"install: NeoBundleInstall
-"uninstall: NeoBundleClean
+" Required:
+set runtimepath+=/Users/Shaka/.vim/bundle/neobundle.vim/
 
-"TODO sort out later
+" Required:
+call neobundle#begin(expand('/Users/Shaka/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'davidoc/taskpaper.vim'
-"NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'mattn/sonictemplate-vim'
 NeoBundle 'Shougo/vimfiler.vim'
@@ -46,3 +41,19 @@ NeoBundle 't9md/vim-choosewin'
 NeoBundle 'vim-scripts/vim-coffee-script'
 NeoBundle 'violetyk/neocomplete-php.vim'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'faith/vim-go'
+
+
+" You can specify revision/branch/tag.
+NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------

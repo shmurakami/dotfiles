@@ -71,12 +71,16 @@ export WORDCHARS='_-&;@/ '
 zstyle ':zle:*' word-style unspecified
 
 # PATH
-PATH=/usr/local/bin:$PATH
+PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # phpenv
-export PATH="/Users/shunsukemurakami/.phpenv/bin:$PATH"
-eval "$(phpenv init -)"
-export PATH=$PATH:/usr/local/php/vendor/bin
+#export PATH="$HOME/.phpenv/bin:$PATH"
+#eval "$(phpenv init -)"
+#export PATH=$PATH:/usr/local/php/vendor/bin
+# phpbrew even zsh
+export PHPBREW_ROOT=/usr/local/opt/phpbrew
+export PHPBREW_HOME=$HOME/.phpbrew
+source /usr/local/opt/phpbrew/bashrc
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"

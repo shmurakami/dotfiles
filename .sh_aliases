@@ -7,6 +7,7 @@ alias mv='mv -i'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias xargs='gxargs'
+alias sed='gsed'
 
 # git alias
 alias ga='git add -A .'
