@@ -9,5 +9,5 @@ let php_parent_error_close = 1
 let g:sql_type_default='mysql'
 
 " load dictionary
-autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
+"autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
 

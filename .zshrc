@@ -57,12 +57,7 @@ REPORTTIME=3
 setopt correct
 
 # directory hash
-hash -d monipla=$HOME/work/mpfb/monipla2
-hash -d account=$HOME/work/mpfb/monipla_account
-hash -d aaid=$HOME/work/mpfb/aaid
-hash -d refuel=$HOME/work/refuel4/server
-hash -d admin=$HOME/work/refuel4/admin
-hash -d api=$HOME/work/refuel4/api
+#hash -d api=$HOME/work/api
 
 # space separator
 autoload -Uz select-word-style

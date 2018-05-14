@@ -1,7 +1,9 @@
 "global config
 syntax on
 
-set visualbell
+filetype plugin indent on
+
+set novisualbell
 set showmode
 set showmatch
 set laststatus=2

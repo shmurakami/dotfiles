@@ -11,4 +11,4 @@ highlight DiffDelete ctermfg=black ctermbg=1
 highlight DiffText   ctermfg=black ctermbg=7
 
 " color schema
-colorscheme hybrid
+colorscheme hybrid-light
